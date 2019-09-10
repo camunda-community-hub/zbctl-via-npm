@@ -7,11 +7,11 @@ const pkg = require('../package')
 const osvar = process.platform;
 let binary = process.argv.slice(1)[0]
 if (osvar === 'darwin') {
-    binary += '.darwin';
+    binary += '-cli.darwin';
 } else if (osvar === 'win32') {
-    binary += '.exe.cmd'
+    binary += '-cli.exe'
 } else {
-    binary += '.linux'
+    binary += '-cli.linux'
 }
 
 const args = process.argv.slice(2)

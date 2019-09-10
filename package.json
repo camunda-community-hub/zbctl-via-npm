@@ -1,13 +1,13 @@
 {
   "name": "zbctl",
-  "version": "0.21.22",
+  "version": "0.21.24",
   "description": "Zeebe CLI",
   "main": "index.js",
   "bin": {
     "zbctl": "bin/zbctl",
-    "zbctl.darwin": "bin/zbctl.darwin",
-    "zbctl.exe": "bin/zbctl.exe",
-    "zbctl.linux": "bin/zbctl.linux"
+    "zbctl-cli.darwin": "bin/zbctl-cli.darwin",
+    "zbctl-cli.win": "bin/zbctl-cli.exe",
+    "zbctl-cli.linux": "bin/zbctl-cli.linux"
   },
   "scripts": {
     "test": "echo \"Test in production!\""
