@@ -1,0 +1,26 @@
+{
+  "name": "zbctl",
+  "version": "0.21.0",
+  "description": "Zeebe CLI",
+  "main": "index.js",
+  "bin": {
+    "zbctl": "bin/zbctl"
+  },
+  "scripts": {
+    "test": "echo \"We don't need no stinkin tests!\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwulf/zbctl.git"
+  },
+  "keywords": [
+    "zeebe",
+    "cli"
+  ],
+  "author": "Josh Wulf <josh.wulf@camunda.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwulf/zbctl/issues"
+  },
+  "homepage": "https://github.com/jwulf/zbctl#readme"
+}

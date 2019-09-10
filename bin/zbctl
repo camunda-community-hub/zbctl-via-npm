@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+var osvar = process.platform;
+let binary
+if (osvar === 'darwin') {
+    binary = './zbctl.darwin';
+} else if (osvar === 'win32') {
+    binary = './zbctl.exe'
+} else {
+    binary = './zbctl.linux'
+}
+const { spawnSync} = require('child_process');
+
+const args = process.argv.slice(2)
+
+const child = spawnSync(binary, [...args]);
+
+console.log('error', child.error);
+console.log('stdout ', child.stdout.toString());
+console.log('stderr ', child.stderr.toString());
