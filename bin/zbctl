@@ -9,7 +9,7 @@ let binary = process.argv.slice(1)[0]
 if (osvar === 'darwin') {
     binary += '.darwin';
 } else if (osvar === 'win32') {
-    binary += '.exe'
+    binary += '.exe.cmd'
 } else {
     binary += '.linux'
 }
