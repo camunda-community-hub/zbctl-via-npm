@@ -1,10 +1,13 @@
 {
   "name": "zbctl",
-  "version": "0.21.0",
+  "version": "0.21.14",
   "description": "Zeebe CLI",
   "main": "index.js",
   "bin": {
-    "zbctl": "bin/zbctl"
+    "zbctl": "bin/zbctl",
+    "zbctl.darwin": "bin/zbctl.darwin",
+    "zbctl.exe": "bin/zbctl.exe",
+    "zbctl.linux": "bin/zbctl.linux"
   },
   "scripts": {
     "test": "echo \"We don't need no stinkin tests!\""
@@ -22,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/jwulf/zbctl/issues"
   },
-  "homepage": "https://github.com/jwulf/zbctl#readme"
+  "homepage": "https://github.com/jwulf/zbctl#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "update-check": "^1.5.3"
+  }
 }

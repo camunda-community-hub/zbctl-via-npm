@@ -1,20 +1,45 @@
 #!/usr/bin/env node
-
-var osvar = process.platform;
-let binary
-if (osvar === 'darwin') {
-    binary = './zbctl.darwin';
-} else if (osvar === 'win32') {
-    binary = './zbctl.exe'
-} else {
-    binary = './zbctl.linux'
-}
+const chalk = require('chalk')
+const checkForUpdate = require('update-check')
 const { spawnSync} = require('child_process');
+const pkg = require('../package')
+
+const osvar = process.platform;
+let binary = process.argv.slice(1)[0]
+if (osvar === 'darwin') {
+    binary += '.darwin';
+} else if (osvar === 'win32') {
+    binary += '.exe'
+} else {
+    binary += '.linux'
+}
 
 const args = process.argv.slice(2)
 
 const child = spawnSync(binary, [...args]);
 
-console.log('error', child.error);
-console.log('stdout ', child.stdout.toString());
-console.log('stderr ', child.stderr.toString());
+console.error(child.error && child.error.toString());
+console.log(child.stdout.toString());
+console.error(child.stderr.toString());
+
+const version = pkg.version
+doUpdateCheck()
+async function doUpdateCheck() {
+    let update = null
+
+    try {
+        update = await checkForUpdate(pkg)
+    } catch (err) {
+        // console.error(`Failed to check for updates: ${err}`)
+    }
+
+    if (update) {
+        console.log(
+            chalk.yellow(
+                `\nAn updated version is available. The latest version is ${
+                    update.latest
+                }. Please update by running `
+            ) + chalk.blue('npm i -g zbctl')
+        )
+    }
+}
