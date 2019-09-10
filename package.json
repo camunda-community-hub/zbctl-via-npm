@@ -1,6 +1,6 @@
 {
   "name": "zbctl",
-  "version": "0.21.14",
+  "version": "0.21.20",
   "description": "Zeebe CLI",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,7 @@
     "zbctl.linux": "bin/zbctl.linux"
   },
   "scripts": {
-    "test": "echo \"We don't need no stinkin tests!\""
+    "test": "echo \"Test in production!\""
   },
   "repository": {
     "type": "git",
