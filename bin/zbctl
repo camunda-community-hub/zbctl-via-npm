@@ -1,48 +1,46 @@
 #!/usr/bin/env node
-const chalk = require('chalk')
-const checkForUpdate = require('update-check')
-const { spawnSync} = require('child_process');
-const pkg = require('../package')
+const chalk = require("chalk");
+const checkForUpdate = require("update-check");
+const { spawnSync } = require("child_process");
+const pkg = require("../package");
 
 const osvar = process.platform;
-let binary = process.argv.slice(1)[0]
-if (osvar === 'darwin') {
-    binary += '-cli.darwin';
-} else if (osvar === 'win32') {
-    binary += '-cli.exe'
+let binary = process.argv.slice(1)[0];
+if (osvar === "darwin") {
+  binary += "-cli.darwin";
+} else if (osvar === "win32") {
+  binary += "-cli.exe";
 } else {
-    binary += '-cli.linux'
+  binary += "-cli.linux";
 }
 
-const args = process.argv.slice(2)
+const args = process.argv.slice(2);
 
 const child = spawnSync(binary, [...args]);
 
-console.error(child.error && child.error.toString());
+child.error && console.error(child.error.toString());
 console.log(child.stdout.toString());
 console.error(child.stderr.toString());
 
-const version = pkg.version
-doUpdateCheck()
+const version = pkg.version;
+doUpdateCheck();
 
 async function doUpdateCheck() {
-    let update = null
+  let update = null;
 
-    try {
-        update = await checkForUpdate(pkg, {        
-            interval: 60000,  // For how long to cache latest version (default: 1 day)
-        })
-    } catch (err) {
-        console.error(`Failed to check for updates: ${err}`)
-    }
+  try {
+    update = await checkForUpdate(pkg, {
+      interval: 60000 // For how long to cache latest version (default: 1 day)
+    });
+  } catch (err) {
+    console.error(`Failed to check for updates: ${err}`);
+  }
 
-    if (update) {
-        console.log(
-            chalk.yellow(
-                `\nAn updated version is available. The latest version is ${
-                    update.latest
-                }. Please update by running `
-            ) + chalk.blue('npm i -g zbctl')
-        )
-    }
+  if (update) {
+    console.log(
+      chalk.yellow(
+        `\nAn updated version is available. The latest version is ${update.latest}. Please update by running `
+      ) + chalk.blue("npm i -g zbctl")
+    );
+  }
 }
