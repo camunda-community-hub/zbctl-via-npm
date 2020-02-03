@@ -47,19 +47,15 @@ Available Commands:
   version     Print the version of zbctl
 
 Flags:
-      --address string        Specify a contact point address
-      --audience string       Specify the resource that the access token should be valid for. Can be overridden by the environment variable 'ZEEBE_TOKEN_AUDIENCE'
-      --authzUrl string       Specify an authorization server URL from which to request an access token. Can be overridden by the environment variable 'ZEEBE_AUTHORIZATION_SERVER_URL'
-      --certPath string       Specify a path to a certificate with which to validate gateway requests
-      --clientId string       Specify a client identifier to request an access token. Can be overridden by the environment variable 'ZEEBE_CLIENT_ID'
-      --clientSecret string   Specify a client secret to request an access token. Can be overridden by the environment variable 'ZEEBE_CLIENT_SECRET'
+      --address string        Specify a contact point address. If omitted, will read from the environment variable 'ZEEBE_ADDRESS' (default '127.0.0.1:26500')
+      --audience string       Specify the resource that the access token should be valid for. If omitted, will read from the environment variable 'ZEEBE_TOKEN_AUDIENCE'
+      --authzUrl string       Specify an authorization server URL from which to request an access token. If omitted, will read from the environment variable 'ZEEBE_AUTHORIZATION_SERVER_URL' (default "https://login.cloud.camunda.io/oauth/token/")
+      --certPath string       Specify a path to a certificate with which to validate gateway requests. If omitted, will read from the environment variable 'ZEEBE_CA_CERTIFICATE_PATH'
+      --clientCache string    Specify the path to use for the OAuth credentials cache. If omitted, will read from the environment variable 'ZEEBE_CLIENT_CONFIG_PATH' (default "/Users/sitapati/.camunda/credentials")
+      --clientId string       Specify a client identifier to request an access token. If omitted, will read from the environment variable 'ZEEBE_CLIENT_ID'
+      --clientSecret string   Specify a client secret to request an access token. If omitted, will read from the environment variable 'ZEEBE_CLIENT_SECRET'
   -h, --help                  help for zbctl
-      --insecure              Specify if zbctl should use an unsecured connection
-      --useOAuth              Specify if OAuth credentials should be used. Automatically enabled if at least one of the following is provided:
-                                * clientId
-                                * clientSecret
-                                * audience
-                                * authzUrl
+      --insecure              Specify if zbctl should use an unsecured connection. If omitted, will read from the environment variable 'ZEEBE_INSECURE_CONNECTION'
 
 Use "zbctl [command] --help" for more information about a command.
 ```
