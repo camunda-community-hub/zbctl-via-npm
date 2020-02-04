@@ -1,6 +1,8 @@
 # zbctl
 
-Zeebe CLI via NPM.
+[![npm version](https://badge.fury.io/js/zbctl.svg)](https://badge.fury.io/js/zbctl)
+
+Zeebe CLI via NPM (and Docker Hub).
 
 This is the client command-line binary for [Zeebe](https://zeebe.io), packaged for NPM.
 
