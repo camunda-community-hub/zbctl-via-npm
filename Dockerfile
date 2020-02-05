@@ -2,4 +2,5 @@ FROM scratch
 
 COPY ./bin/zbctl-cli.linux /zbctl
 ENV PATH=/
-CMD ["/zbctl"]
+COPY ./certs/ca-certificates.crt /etc/ssl/certs/
+ENTRYPOINT ["/zbctl"]
