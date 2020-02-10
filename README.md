@@ -21,7 +21,7 @@ You can use `zbctl` with Docker in CI, or on your local machine if you don't wan
 Here is an example of getting the status from a Camunda Cloud cluster. Grab the environment variables from your [Camunda Cloud console](https://console.cloud.camunda.io/).
 
 ```
-docker run  --env ZEEBE_ADDRESS='6fbb7f8f-1f4c-4f6d-bb7c-3bec17819f0a.zeebe.camunda.io:443' --env ZEEBE_CLIENT_ID='WO0GiU310MisG0cf3DCiXnfsshtrXWsV7lp' --env ZEEBE_CLIENT_SECRET='f9a5AGe9A6O4yO3Wfl1i6QwK481rhcNH3JYjBT0l48TwgmIdppL0QjFu3VsUwnRP' --env ZEEBE_AUTHORIZATION_SERVER_URL='https://login.cloud.camunda.io/oauth/token' sitapati/zbctl status
+docker run  --env ZEEBE_ADDRESS=$ZEEBE_ADDRESS --env ZEEBE_CLIENT_ID=$ZEEBE_CLIENT_ID --env ZEEBE_CLIENT_SECRET=$ZEEBE_CLIENT_SECRET --env ZEEBE_AUTHORIZATION_SERVER_URL=$ZEEBE_AUTHORIZATION_SERVER_URL sitapati/zbctl status
 ```
 ## Usage
 
