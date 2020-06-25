@@ -17,8 +17,8 @@ const version = pkg.version;
 
 const args = process.argv.slice(2);
 
-if (args && args.length > 0 && args[0] === 'version') {
-	console.log(`NPM package version: ${version}`)
+if (args && args.length > 0 && args[0] === "version") {
+  console.log(`NPM package version: ${version}`);
 }
 
 const child = spawnSync(binary, [...args]);
@@ -27,14 +27,14 @@ child.error && console.error(child.error.toString());
 console.log(child.stdout.toString());
 console.error(child.stderr.toString());
 
-doUpdateCheck();
+doUpdateCheck().then(() => process.exit(child.status));
 
 async function doUpdateCheck() {
   let update = null;
 
   try {
     update = await checkForUpdate(pkg, {
-      interval: 60000 // For how long to cache latest version (default: 1 day)
+      interval: 60000, // For how long to cache latest version (default: 1 day)
     });
   } catch (err) {
     console.error(`Failed to check for updates: ${err}`);
