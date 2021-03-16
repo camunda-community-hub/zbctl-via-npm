@@ -1,4 +1,4 @@
-# zbctl
+# zbctl via NPM
 
 [![npm version](https://badge.fury.io/js/zbctl.svg)](https://badge.fury.io/js/zbctl)
 
