@@ -8,9 +8,15 @@ This is the client command-line binary for [Zeebe](https://zeebe.io), packaged f
 
 ## Installation
 
-To install:
+For pre-1.0.0 versions of Zeebe, install with:
 
+```bash
+npm i -g zbctl@0
 ```
+
+For Zeebe versions from 1.0.0-alpha7 and later:
+
+```bash
 npm i -g zbctl
 ```
 
@@ -20,7 +26,7 @@ You can use `zbctl` with Docker in CI, or on your local machine if you don't wan
 
 Here is an example of getting the status from a Camunda Cloud cluster. Grab the environment variables from your [Camunda Cloud console](https://console.cloud.camunda.io/).
 
-```
+```bash
 docker run  --env ZEEBE_ADDRESS=$ZEEBE_ADDRESS --env ZEEBE_CLIENT_ID=$ZEEBE_CLIENT_ID --env ZEEBE_CLIENT_SECRET=$ZEEBE_CLIENT_SECRET --env ZEEBE_AUTHORIZATION_SERVER_URL=$ZEEBE_AUTHORIZATION_SERVER_URL sitapati/zbctl status
 ```
 ## Usage
