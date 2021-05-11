@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const chalk = require("chalk");
 const checkForUpdate = require("update-check");
-const { spawnSync } = require("child_process");
+const { spawn } = require("child_process");
 const pkg = require("../package");
 
 const osvar = process.platform;
@@ -21,13 +21,11 @@ if (args && args.length > 0 && args[0] === "version") {
   console.log(`NPM package version: ${version}`);
 }
 
-const child = spawnSync(binary, [...args]);
+const child = spawn(binary, [...args]);
 
-child.error && console.error(child.error.toString());
-console.log(child.stdout.toString());
-console.error(child.stderr.toString());
-
-doUpdateCheck().then(() => process.exit(child.status));
+child.stdout.on('data', data => console.log(data.toString()))
+child.stderr.on('data', data => console.error(data.toString()))
+child.on('exit', status => doUpdateCheck().then(() => process.exit(status)))
 
 async function doUpdateCheck() {
   let update = null;
