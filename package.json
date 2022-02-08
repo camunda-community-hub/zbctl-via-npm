@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jwulf/zbctl.git"
+    "url": "git+https://github.com/camunda-community-hub/zbctl.git"
   },
   "keywords": [
     "zeebe",
@@ -23,9 +23,9 @@
   "author": "Josh Wulf <josh.wulf@camunda.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jwulf/zbctl/issues"
+    "url": "https://github.com/camunda-community-hub/zbctl/issues"
   },
-  "homepage": "https://github.com/jwulf/zbctl#readme",
+  "homepage": "https://github.com/camunda-community-hub/zbctl#readme",
   "dependencies": {
     "chalk": "^2.4.2",
     "update-check": "^1.5.3"
