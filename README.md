@@ -91,10 +91,10 @@ If you want to submit a PR to update the package with a newer version of `zbctl`
 The following BASH script demonstrates how to download and rename the `zbctl` binaries:
 
 ```
-export ZBCTL_VERSION=1.3.3
-wget -O bin/zbctl-cli.darwin https://github.com/camunda-cloud/zeebe/releases/download/$ZBCTL_VERSION/zbctl.darwin
-wget -O bin/zbctl-cli.exe https://github.com/camunda-cloud/zeebe/releases/download/$ZBCTL_VERSION/zbctl.exe
-wget -O bin/zbctl-cli.linux https://github.com/camunda-cloud/zeebe/releases/download/$ZBCTL_VERSION/zbctl
+export ZBCTL_VERSION=8.1.3
+wget -O bin/zbctl-cli.darwin https://github.com/camunda/zeebe/releases/download/$ZBCTL_VERSION/zbctl.darwin
+wget -O bin/zbctl-cli.exe https://github.com/camunda/zeebe/releases/download/$ZBCTL_VERSION/zbctl.exe
+wget -O bin/zbctl-cli.linux https://github.com/camunda/zeebe/releases/download/$ZBCTL_VERSION/zbctl
 
 # Make the new binaries executable
 chmod +x bin/*
