@@ -1,10 +1,11 @@
 name: Create Release
 
 on:
-  push:
-    # Sequence of patterns matched against refs/tags
-    tags:
-      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
 
 jobs:
   docker:
@@ -42,14 +43,11 @@ jobs:
 #        run: npm run test
       - name: Build
         run: npm run build
-      - name: Get the version # https://github.community/t5/GitHub-Actions/How-to-get-just-the-tag-name/td-p/31595
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - name: Set version
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          npm version ${{ steps.get_version.outputs.VERSION }} -m "Publish v%s"
+          npm version ${{ inputs.version  }} -m "Publish v%s"
       - name: Publish to NPM
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
