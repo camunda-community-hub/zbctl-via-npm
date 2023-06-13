@@ -14,9 +14,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Get the version # https://github.community/t5/GitHub-Actions/How-to-get-just-the-tag-name/td-p/31595
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - name: Publish Docker image to Registry
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
@@ -24,7 +21,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           dockerfile: Dockerfile
-          tags: "${{ steps.get_version.outputs.VERSION }}, latest"
+          tags: "${{ inputs.version }}, latest"
   tag-and-publish:
     runs-on: ubuntu-latest
     steps:
@@ -39,10 +36,6 @@ jobs:
           cache: 'npm'
       - name: Install
         run: npm ci --ignore-scripts
-#      - name: Run tests
-#        run: npm run test
-      - name: Build
-        run: npm run build
       - name: Set version
         run: |
           git config user.name 'github-actions[bot]'
