@@ -1,6 +1,6 @@
 {
   "name": "zbctl",
-  "version": "8.4.0",
+  "version": "8.4.1",
   "description": "Zeebe CLI",
   "main": "index.js",
   "files": [
